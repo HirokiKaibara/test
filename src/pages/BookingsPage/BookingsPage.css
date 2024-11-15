@@ -1,0 +1,261 @@
+.bookings-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #007bff;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+}
+
+.main-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-right: 180px;
+}
+
+.header-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.header-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.register-button {
+  background-color: #28a745;
+}
+
+.register-button:hover {
+  background-color: #218838;
+}
+
+.password-button {
+  background-color: #007bff;
+}
+
+.password-button:hover {
+  background-color: #0056b3;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  padding: 5px 15px;
+  font-size: 0.9em;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.no-bookings {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  margin: 40px 0;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.booking-datetime {
+  font-size: 18px;
+  color: #007bff;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.booking-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  color: #666;
+  min-width: 100px;
+}
+
+.delete-button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .bookings-page {
+    padding: 15px;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .main-content {
+    padding-right: 0;
+  }
+
+  .page-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .booking-card {
+    margin: 0 -15px;
+    border-radius: 0;
+  }
+
+  .booking-header {
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 15px;
+  }
+
+  .delete-button {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .back-button {
+    width: calc(100% - 30px);
+    bottom: 15px;
+    right: 15px;
+    font-size: 14px;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  /* ボタン間の間隔 */
+  margin-top: 30px;  /* 予約カードとの間隔 */
+}
+
+.logout-button,
+.back-button {
+  padding: 5px 15px;
+  font-size: 0.9em;
+}

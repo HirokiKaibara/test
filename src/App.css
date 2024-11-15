@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+td {
+  text-align: center;
+}
+
+td:hover {
+  background-color: #f0f0f0;
+}

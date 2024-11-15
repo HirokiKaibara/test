@@ -1,0 +1,384 @@
+.calendar-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.calendar-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+.customer-login-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.customer-login-button:hover {
+  background-color: #45a049;
+}
+
+/* 年月表示のスタイル */
+.month-header {
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  margin: 10px 0;
+  border-radius: 4px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* カレンダーコンテナの幅を調整 */
+.calendar-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-width: 400px;
+}
+
+/* セルサイズの調整 */
+.empty-header {
+  width: 40px;
+}
+
+.date-header {
+  min-width: 40px;
+  padding: 6px 4px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+}
+
+.date-number {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.weekday {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.time-slot {
+  padding: 6px 4px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.slot {
+  padding: 6px 4px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.slot:hover:not(.past):not(.booked) {
+  background-color: #e9ecef;
+}
+
+.available-mark {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.booked-mark {
+  color: #e53935;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.past-mark {
+  color: #9e9e9e;
+}
+
+.booked {
+  background-color: #ffebee;
+  cursor: not-allowed;
+}
+
+.past {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+/* 土日の背景色とテキストカラーの設定 */
+.sunday, .date-header.sunday, .slot.sunday {
+  color: #dc3545;
+  background-color: #ffebee;
+}
+
+.saturday, .date-header.saturday, .slot.saturday {
+  color: #007bff;
+  background-color: #e3f2fd;
+}
+
+/* 土日の予約済みセルの背景色 */
+.slot.sunday.booked {
+  background-color: #ffe4e6;
+}
+
+.slot.saturday.booked {
+  background-color: #e1effe;
+}
+
+/* 土日の過去のセルの背景色 */
+.slot.sunday.past {
+  background-color: #fff1f2;
+}
+
+.slot.saturday.past {
+  background-color: #eaf3fe;
+}
+
+/* ホバー時の背景色 */
+.slot.sunday:hover:not(.past):not(.booked) {
+  background-color: #ffcdd2;
+}
+
+.slot.saturday:hover:not(.past):not(.booked) {
+  background-color: #bbdefb;
+}
+
+.login-button, .reset-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 50%;
+  max-width: 200px;
+}
+
+.reset-button {
+  background-color: #dc3545;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.reset-button:hover {
+  background-color: #c82333;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .calendar-container {
+    width: 70%;
+  }
+  
+  .month-header {
+    width: 70%;
+  }
+  
+  .login-button, .reset-button {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-page {
+    padding: 10px;
+  }
+
+  .calendar-title {
+    font-size: 1.5rem;
+  }
+
+  .month-header {
+    font-size: 1.1rem;
+    padding: 10px;
+    width: 90%;
+  }
+
+  .calendar-container {
+    width: 90%;
+  }
+
+  .empty-header {
+    width: 35px;
+  }
+
+  .date-header {
+    min-width: 35px;
+    padding: 5px 3px;
+  }
+
+  .date-number {
+    font-size: 0.8rem;
+  }
+
+  .weekday {
+    font-size: 0.7rem;
+  }
+
+  .time-slot {
+    padding: 5px 3px;
+    font-size: 0.8rem;
+  }
+
+  .slot {
+    padding: 5px 3px;
+  }
+
+  .booked-mark {
+    font-size: 0.7rem;
+  }
+
+  .login-button, .reset-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    width: 90%;
+  }
+}
+
+.owner-only-btn {
+  font-size: 0.8rem;  /* フォントサイズを小さく */
+  padding: 6px 12px;
+  margin-left: auto;  /* 右寄せ */
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.customer-auth-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  margin: 20px;
+  margin-left: auto;  /* 右寄せ */
+}
+
+.customer-name {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.login-button, .logout-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.login-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.customer-name-link {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.customer-name-link:hover {
+  text-decoration: underline;
+}
+
+.customer-name {
+  cursor: pointer;
+}
+
+/* ツールチップのスタイル */
+.booked-mark:hover {
+  position: relative;
+}
+
+.booked-mark[title]:hover:after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.login-button {
+  padding: 5px 10px;  /* ボタンの内側の余白を小さく */
+  font-size: 0.8em;   /* 文字サイズを小さく */
+}
+
+.logout-button {
+  padding: 5px 10px;
+  font-size: 0.8em;
+}
+
+.customer-name {
+  font-size: 0.8em;  /* お客様名も同じサイズに */
+}
+
+.customer-name-link {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 10px;
+}
+
+.customer-name-link:hover {
+  text-decoration: underline;
+}

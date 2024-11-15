@@ -1,0 +1,10 @@
+.register-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
